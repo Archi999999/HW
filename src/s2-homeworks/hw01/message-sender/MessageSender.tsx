@@ -52,7 +52,7 @@ const MessageSender = (props: any) => {
                     ref={textareaRef}
 
                     title={'Shift+Enter for send'}
-                    placeholder={'Type your message'}
+                    placeholder={'Type a message'}
                     value={text}
 
                     onChange={onChange}

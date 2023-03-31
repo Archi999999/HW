@@ -3,25 +3,33 @@
 }
 
 .imageAndText {
-    /*display: flex;*/
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 24px;
     /*justify-content: flex-end;*/
 }
 
 .imageAndText img {
+    margin-right: 70px;
     width: 48px;
     height: 48px;
 }
 
 .text {
-
-    margin-left: 13px;
+    position: relative;
+    color: #FFFFFF;
+    margin-right: 13px;
     padding: 0 13px;
     background-color: #0066CC;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 10px;
 }
 
 .text:after {
-
+    content: '';
+    position: absolute;
+    right: -8px; top: 28px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #0066CC;
 }
 
 .name {
@@ -42,6 +50,10 @@
 }
 
 .time {
+    display: flex;
+    flex-direction: row-reverse;
     font-size: 10px;
     font-weight: 600;
+    margin-right: 82px;
+    margin-bottom: 30px;
 }
