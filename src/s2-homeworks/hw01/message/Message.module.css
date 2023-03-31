@@ -1,0 +1,47 @@
+.message {
+
+}
+
+.imageAndText {
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
+}
+
+.imageAndText img {
+    width: 48px;
+    height: 48px;
+}
+
+.text {
+
+    margin-left: 13px;
+    padding: 0 13px;
+    background-color: #0066CC;
+    border-radius: 10px;
+}
+
+.text:after {
+
+}
+
+.name {
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.messageText {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.time {
+    font-size: 10px;
+    font-weight: 600;
+}
