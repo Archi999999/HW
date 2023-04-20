@@ -5,6 +5,7 @@
 }
 
 .inputWrapper {
+    /*margin: 90px 0 0 70px;*/
 }
 
 .superInput {
@@ -17,4 +18,5 @@
 }
 
 .error {
+    color: #CC1439;
 }

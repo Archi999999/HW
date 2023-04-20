@@ -13,23 +13,26 @@ export const pureAddUser = (name: string,
                             setError: (value: string)=>void,
                             setName: (value: string)=>void,
                             addUserCallback: (name: string) => void) => {
-    if (name !== '') {
+    if (name.trim() === '') {
+        // pureOnBlur(name,setError)
+        setError("Ошибка! Введите имя!")
+    } else {
         addUserCallback(name)
         setName('')
-    } else {
-        setError("Ошибка! Введите имя!")
+        // setError('')
     }
 
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
 
-export const pureOnBlur = (name: string, setError: React.Dispatch<React.SetStateAction<string>>) => { // если имя пустое - показать ошибку
-    if (name === '') {
+export const pureOnBlur = (name: string, setError: (value: string)=>void) => { // если имя пустое - показать ошибку
+    if (name.trim() === '') {
         setError('Ошибка! Введите имя!')
+    // } else {setError('')
     }
 }
 
-export const pureOnEnter = (e: any, addUser: () => void) => { // если нажата кнопка Enter - добавить
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: () => void) => { // если нажата кнопка Enter - добавить
     e.key === "Enter" && addUser()
 }
 
@@ -46,7 +49,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [error, setError] = useState<string>('') // need to fix any
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
-        setName(e.currentTarget.value) // need to fix
+        setName(e.currentTarget.value)
         error && setError('')
     }
     const addUser = () => {
