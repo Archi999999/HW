@@ -1,2 +1,10 @@
 .container {
+    display: flex;
+    width: 400px;
+    justify-content: space-evenly;
+    padding: 32px 0;
+
+    /*& > div{*/
+    /*flex-direction: column;*/
+    /*  }*/
 }
