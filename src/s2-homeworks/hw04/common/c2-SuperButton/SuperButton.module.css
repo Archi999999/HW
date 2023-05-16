@@ -1,6 +1,7 @@
 .button {
     border-radius: 3px;
     padding: 5px 24px;
+    margin-left: 10px;
     /*background: #343434*/
 }
 

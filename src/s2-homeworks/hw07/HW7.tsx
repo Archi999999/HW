@@ -41,7 +41,7 @@ const HW7 = () => {
                             name={'hw7-radio'}
                             options={arr}
                             value={value}
-                            onChangeOption={onChangeOption}
+                            onChangeActionOption={onChangeOption}
                         />
                     </div>
                 </div>
