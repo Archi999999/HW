@@ -1,3 +1,11 @@
 .loader {
+    width: 100px; /* size */
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(from 90deg at 50% 50%, rgba(255, 255, 255, 0) 0deg, #512DE4 360deg);
+    animation: load 1.5s;
+    mask:
+            radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0)
     /*свг и/или анимация*/
 }
+@keyframes load {to{transform: rotate(1turn)}}

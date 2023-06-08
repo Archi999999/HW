@@ -1,8 +1,19 @@
 .container {
+    /*height: 33.6rem;*/
+    /*border-bottom:  1px solid #D9D9D9;*/
 }
 
 .wrapper {
+    /*width: 14.7rem;*/
+    /*border: 1px solid black;*/
 }
 
 .number {
+    display: inline-block;
+    width: 2rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
 }

@@ -31,7 +31,7 @@
 
 .default:hover {
     background: #0080FF;
-
+    color: white;
 }
 
 .red:hover {
