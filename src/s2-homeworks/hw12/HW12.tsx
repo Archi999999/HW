@@ -3,7 +3,8 @@ import s from './HW12.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeThemeId} from './bll/themeReducer'
+import {changeThemeId, StateType} from './bll/themeReducer'
+import {RootStateType} from "./bll/store";
 
 /*
 * 1 - в файле themeReducer.ts написать нужные типы вместо any, дописать редьюсер
@@ -20,15 +21,20 @@ const themes = [
 
 const HW12 = () => {
     // взять ид темы из редакса
-    const themeId = 1
+    const themeId = useSelector<RootStateType, number>(state => state.theme.themeId)
+    const dispatch = useDispatch()
+    // const themeId = 2
 
-    const change = (id: any) => { // дописать функцию
+    const change = (id: number) => {
+        dispatch(changeThemeId(id))
+        // дописать функцию
 
     }
 
     useEffect(() => {
         document.documentElement.dataset.theme = themeId + ''
     }, [themeId])
+    console.log(themeId)
 
     return (
         <div id={'hw12'}>
@@ -39,9 +45,11 @@ const HW12 = () => {
             <div className={s2.hw}>
                 <SuperSelect
                     id={'hw12-select-theme'}
+                    // className={s.select}
                     className={s.select}
+                    options={themes}
+                    onChangeOption={change}
                     // сделать переключение тем
-
                 />
             </div>
         </div>
