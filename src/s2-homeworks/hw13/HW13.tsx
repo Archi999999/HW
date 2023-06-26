@@ -40,7 +40,6 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
-                console.log(res)
                 setCode('Код 200!')
                 setImage(success200)
                 setText(res.data.errorText)
@@ -51,14 +50,14 @@ const HW13 = () => {
                 if (e.message === 'Request failed with status code 400') {
                     setCode('Error 400!')
                     setImage(error400)
-                    setText(e.message)
-                    setInfo(e.name)
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
                 }
                 if (e.message === 'Request failed with status code 500') {
                     setCode('Error 500!')
                     setImage(error500)
-                    setText(e.message)
-                    setInfo(e.name)
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
                 }
                 console.log(e.message)
                 if (e.message === 'Network Error') {
