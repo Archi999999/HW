@@ -20,11 +20,17 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
+    const [disButt, setDisButt] = useState(false)
+    const disabledButton = (value: boolean) => {
+        setDisButt(value)
+    }
     const send = (x?: boolean | null) => () => {
+        disabledButton(true)
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
-                : 'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test'
+                : `https://samurai.it-incubator.io/api/3.0/homework/test`
+        // : 'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test'
 
         setCode('')
         setImage('')
@@ -34,14 +40,38 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
+                console.log(res)
                 setCode('Код 200!')
                 setImage(success200)
+                setText(res.data.errorText)
+                setInfo(res.data.info)
+                // дописать
+            })
+            .catch((e) => {
+                if (e.message === 'Request failed with status code 400') {
+                    setCode('Error 400!')
+                    setImage(error400)
+                    setText(e.message)
+                    setInfo(e.name)
+                }
+                if (e.message === 'Request failed with status code 500') {
+                    setCode('Error 500!')
+                    setImage(error500)
+                    setText(e.message)
+                    setInfo(e.name)
+                }
+                console.log(e.message)
+                if (e.message === 'Network Error') {
+                    setCode('Error!')
+                    setImage(errorUnknown)
+                    setText(e.message)
+                    setInfo(e.name)
+                }
                 // дописать
 
             })
-            .catch((e) => {
-                // дописать
-
+            .finally(() => {
+                disabledButton(false)
             })
     }
 
@@ -55,6 +85,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={disButt}
                         // дописать
 
                     >
@@ -64,6 +95,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled={disButt}
                         // дописать
 
                     >
@@ -73,6 +105,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled={disButt}
                         // дописать
 
                     >
@@ -82,6 +115,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
+                        disabled={disButt}
                         // дописать
 
                     >

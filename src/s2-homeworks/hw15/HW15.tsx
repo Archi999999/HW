@@ -30,8 +30,7 @@ type ParamsType = {
 const getTechs = (params: ParamsType) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
-            'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
-            {params}
+            `https://samurai.it-incubator.io/api/3.0/homework/test3`
         )
         .catch((e) => {
             alert(e.response?.data?.errorText || e.message)
