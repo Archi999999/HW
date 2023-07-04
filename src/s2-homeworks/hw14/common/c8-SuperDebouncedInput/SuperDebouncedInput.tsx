@@ -30,11 +30,20 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
 
     const onChangeTextCallback = (value: string) => {
         onChangeText?.(value)
-
+        let timeoutId
         if (onDebouncedChange) {
+
+
+
             // делает студент
 
             // остановить предыдущий таймер
+            clearTimeout(timeoutId);
+
+            timeoutId = setTimeout(()=>{
+                onDebouncedChange(value)
+                console.log('tik')
+            }, 1500)
             // запустить новый на 1500ms, в котором вызовется функция
 
             //
